@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ps" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#164735">
+<title>د کیبل ګارخانې حساب</title>
+<style>
+:root{--site-primary:#164735;--site-secondary:#dceee4;--site-background:#f4f8f5;--site-on-primary:#fff;--site-on-secondary:#173d2f;--site-on-background:#18332a;--site-font-body:system-ui,-apple-system,"Noto Sans Arabic",sans-serif;--site-font-heading:system-ui,-apple-system,"Noto Sans Arabic",sans-serif;--site-heading-scale:1;--site-spacing-scale:1;--site-radius-scale:1;--site-decoration-opacity:1;color-scheme:light dark}
+*{box-sizing:border-box}body{margin:0;font-family:var(--site-font-body);background:light-dark(var(--site-background),#111713);color:light-dark(var(--site-on-background),#e8f1eb)}button,input,select{font:inherit}button{cursor:pointer;border:0;border-radius:calc(13px * var(--site-radius-scale));padding:13px 15px;background:var(--site-primary);color:white;font-weight:700}button.secondary{background:light-dark(#e8efea,#29352e);color:light-dark(#173d2f,#e8f1eb);border:1px solid light-dark(#d5e0d8,#3a4b40)}button.danger{background:#a82c28}header{background:var(--site-primary);color:white;padding:20px 18px 18px}header h1{font-size:calc(24px * var(--site-heading-scale));margin:0 0 5px}header p{margin:0;color:#d8e9df;font-size:14px}.wrap{max-width:760px;margin:auto;padding:16px;display:grid;gap:15px}.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.tabs button{padding:10px 4px;font-size:14px}.tabs button.active{background:light-dark(#cce8d8,#315b44);color:light-dark(#164735,#fff);outline:2px solid #6ca887}.panel{background:light-dark(#fff,#1b241e);border:1px solid light-dark(#dce6df,#344238);border-radius:calc(18px * var(--site-radius-scale));padding:16px;box-shadow:0 3px 14px #00000008}.panel h2{font-size:19px;margin:0 0 14px}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:grid;gap:6px}.field.full{grid-column:1/-1}label{font-size:14px;font-weight:650}input,select{width:100%;min-width:0;border:1px solid light-dark(#cbd8cf,#46564b);border-radius:11px;padding:12px;background:light-dark(#fff,#111713);color:inherit}input:focus,select:focus{outline:2px solid #69a886}.result{background:light-dark(#eaf5ee,#223b2b);border-radius:14px;padding:15px;margin:14px 0}.result strong{display:block;font-size:27px;color:light-dark(#176b4d,#91d6ad)}.muted{font-size:13px;color:light-dark(#65766b,#a9b9ae)}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{background:light-dark(#f0f5f1,#222c25);border-radius:13px;padding:13px}.stat span{display:block;font-size:12px;color:light-dark(#65766b,#a9b9ae)}.stat b{font-size:23px;display:block;margin-top:4px}.record{border:1px solid light-dark(#dce6df,#344238);border-radius:13px;padding:13px;margin-top:10px}.recordhead{display:flex;justify-content:space-between;gap:8px;align-items:start}.record h3{margin:0;font-size:16px}.pill{border-radius:99px;padding:5px 9px;background:light-dark(#dceee4,#315b44);font-size:12px;white-space:nowrap}.lines{display:grid;gap:5px;margin:10px 0}.line{display:flex;justify-content:space-between;gap:10px;font-size:14px}.record button{width:100%;margin-top:7px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.notice{font-size:14px;min-height:20px;color:light-dark(#176b4d,#91d6ad)}.empty{text-align:center;padding:25px 8px;color:light-dark(#65766b,#a9b9ae)}.hidden{display:none!important}footer{text-align:center;font-size:12px;color:light-dark(#65766b,#a9b9ae);padding:0 15px 22px}.small{font-size:12px}@media(max-width:400px){.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.tabs button{font-size:12px;padding:10px 2px}.wrap{padding:11px}.panel{padding:13px}}
+</style>
+</head>
+<body>
+<header><h1>د کیبل ګارخانې حساب</h1><p>ورځنی تولید · بازار ته لېږل شوی · پاتې سټاک</p></header>
+<main class="wrap">
+<nav class="tabs" aria-label="اصلي برخې">
+<button class="active" data-tab="entry">نوی حساب</button><button data-tab="report">راپور</button><button data-tab="backup">بیک اپ</button>
+</nav>
+<section id="entry" class="panel">
+<h2>د ورځې د کیبل حساب</h2>
+<form id="entryForm">
+<div class="formgrid">
+<div class="field"><label for="date">نېټه</label><input id="date" type="date" required></div>
+<div class="field"><label for="size">د کیبل اندازه</label><input id="size" list="sizes" placeholder="لکه 2×1.5" required><datalist id="sizes"><option value="2×1.5"><option value="2×2.5"><option value="2×4"><option value="3×1.5"><option value="3×2.5"><option value="3×4"><option value="4×4"><option value="4×6"></datalist></div>
+<div class="field"><label for="opening">د ورځې په پیل کې مال (متر)</label><input id="opening" type="number" min="0" step="0.01" value="0" required></div>
+<div class="field"><label for="production">نن تولید (متر)</label><input id="production" type="number" min="0" step="0.01" value="0" required></div>
+<div class="field full"><label for="market">بازار ته لېږل شوی (متر)</label><input id="market" type="number" min="0" step="0.01" value="0" required></div>
+</div>
+<div class="result"><div class="muted">پاتې سټاک</div><strong id="liveStock">0 متر</strong><div class="muted">پخوانی مال + نوی تولید − بازار ته لېږل شوی</div></div>
+<button type="submit" style="width:100%">حساب ثبت او خوندي کړه</button>
+<p class="notice" id="entryNotice" role="status"></p>
+</form>
+</section>
+<section id="report" class="panel hidden">
+<h2>د ګارخانې راپور</h2>
+<div class="stats"><div class="stat"><span>ټول ثبت شوی تولید</span><b id="totalProduction">0</b><span>متر</span></div><div class="stat"><span>ټول بازار ته تللی</span><b id="totalMarket">0</b><span>متر</span></div></div>
+<div class="formgrid" style="margin-top:14px">
+<div class="field"><label for="filterSize">د اندازې فلټر</label><select id="filterSize"><option value="all">ټولې اندازې</option></select></div>
+<div class="field"><label for="filterMonth">د میاشتې فلټر</label><input id="filterMonth" type="month"></div>
+</div>
+<div id="records"></div>
+</section>
+<section id="backup" class="panel hidden">
+<h2>د معلوماتو ساتنه</h2>
+<p>حسابونه د همدې موبایل په همدې براوزر کې خوندي کېږي. د بیک اپ فایل ښکته کړه، او په بله ورځ یا موبایل کې یې بېرته واردولی شې.</p>
+<div class="actions"><button id="exportBtn">بیک اپ ښکته کړه</button><button class="secondary" id="importBtn">بیک اپ وارد کړه</button></div>
+<input class="hidden" type="file" id="importFile" accept="application/json,.json">
+<p class="muted">مهم: د براوزر معلومات مه پاکوه، تر څو بیک اپ دې نه وي اخیستی. د براوزر شخصي/Incognito حالت مه کاروه.</p>
+<p class="notice" id="backupNotice" role="status"></p>
+</section>
+<footer>د مشتریانو جلا حساب نشته · ټول مقدارونه په مترونو دي</footer>
+</main>
+<script>
+(()=> {
+const KEY='cableFactoryRecords_v1';
+let records=[];
+try { records=JSON.parse(localStorage.getItem(KEY)||'[]'); if(!Array.isArray(records)) records=[]; } catch(e){records=[]}
+const $=id=>document.getElementById(id);
+const fmt=n=>Number(n||0).toLocaleString('en-US',{maximumFractionDigits:2});
+const today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
+$('date').value=today();
+function save(){localStorage.setItem(KEY,JSON.stringify(records));}
+function calc(){const a=Number($('opening').value||0),b=Number($('production').value||0),c=Number($('market').value||0);const v=a+b-c;$('liveStock').textContent=`${fmt(v)} متر`;$('liveStock').style.color=v<0?'#c43b34':'';return v}
+['opening','production','market'].forEach(id=>$(id).addEventListener('input',calc));
+function updateSizeFilter(){const sel=$('filterSize'),old=sel.value;const sizes=[...new Set(records.map(r=>r.size))].sort();sel.innerHTML='<option value="all">ټولې اندازې</option>'+sizes.map(s=>`<option value="${escapeHtml(s)}">${escapeHtml(s)}</option>`).join('');if(sizes.includes(old))sel.value=old}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function render(){
+ const month=$('filterMonth').value, size=$('filterSize').value;
+ const visible=records.filter(r=>(size==='all'||r.size===size)&&(!month||r.date.startsWith(month)));
+ $('totalProduction').textContent=fmt(visible.reduce((s,r)=>s+r.production,0));
+ $('totalMarket').textContent=fmt(visible.reduce((s,r)=>s+r.market,0));
+ const root=$('records');
+ if(!visible.length){root.innerHTML='<div class="empty">تر اوسه حساب نشته، یا د فلټر مطابق حساب نه موندل کېږي.</div>';return}
+ root.innerHTML=[...visible].reverse().map(r=>`<article class="record">
+ <div class="recordhead"><h3>کیبل ${escapeHtml(r.size)}</h3><span class="pill">${escapeHtml(r.date)}</span></div>
+ <div class="lines"><div class="line"><span>پخوانی سټاک</span><b>${fmt(r.opening)} متر</b></div><div class="line"><span>تولید</span><b>${fmt(r.production)} متر</b></div><div class="line"><span>بازار ته تللی</span><b>${fmt(r.market)} متر</b></div><div class="line"><span>پاتې سټاک</span><b>${fmt(r.stock)} متر</b></div></div>
+ <button class="danger" data-delete="${r.id}">دا ثبت حذف کړه</button></article>`).join('');
+ root.querySelectorAll('[data-delete]').forEach(btn=>btn.addEventListener('click',()=>{if(confirm('دا حساب حذف شي؟')){records=records.filter(r=>r.id!==btn.dataset.delete);save();updateSizeFilter();render()}}));
+}
+$('entryForm').addEventListener('submit',e=>{
+ e.preventDefault();const date=$('date').value,size=$('size').value.trim(),opening=Number($('opening').value),production=Number($('production').value),market=Number($('market').value),stock=opening+production-market;
+ if(!date||!size||[opening,production,market].some(v=>!Number.isFinite(v)||v<0)){ $('entryNotice').textContent='مهرباني وکړه سم معلومات ولیکه.';return}
+ if(stock<0){$('entryNotice').textContent='بازار ته تللی مال له موجود مال څخه زیات دی.';return}
+ records.push({id:crypto.randomUUID?crypto.randomUUID():String(Date.now())+Math.random(),date,size,opening,production,market,stock});
+ try{save()}catch(err){$('entryNotice').textContent='معلومات خوندي نه شول؛ د موبایل حافظه وګوره.';return}
+ $('entryNotice').textContent='حساب ثبت او په دې براوزر کې خوندي شو.';
+ $('opening').value=stock;$('production').value='0';$('market').value='0';calc();updateSizeFilter();render();
+});
+$('filterSize').addEventListener('change',render);$('filterMonth').addEventListener('change',render);
+document.querySelectorAll('[data-tab]').forEach(btn=>btn.addEventListener('click',()=>{
+ document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b===btn));
+ ['entry','report','backup'].forEach(id=>$(id).classList.toggle('hidden',id!==btn.dataset.tab));
+ if(btn.dataset.tab==='report'){updateSizeFilter();render()}
+}));
+$('exportBtn').addEventListener('click',()=>{
+ const blob=new Blob([JSON.stringify({app:'CableFactory',version:1,exportedAt:new Date().toISOString(),records},null,2)],{type:'application/json'});
+ const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='cable-factory-backup-'+today()+'.json';a.click();URL.revokeObjectURL(url);$('backupNotice').textContent='د بیک اپ د ښکته کولو غوښتنه وشوه.';
+});
+$('importBtn').addEventListener('click',()=>$('importFile').click());
+$('importFile').addEventListener('change',async e=>{
+ const file=e.target.files[0];if(!file)return;
+ try{const data=JSON.parse(await file.text()),incoming=Array.isArray(data)?data:data.records;if(!Array.isArray(incoming)||incoming.some(r=>!r.date||!r.size||!Number.isFinite(Number(r.stock))))throw Error('bad');
+ if(!confirm('وارد شوي حسابونه له اوسنیو حسابونو سره یوځای شي؟'))return;
+ records=records.concat(incoming.map(r=>({...r,id:String(Date.now())+Math.random()})));save();updateSizeFilter();render();$('backupNotice').textContent='بیک اپ وارد او خوندي شو.';
+ }catch(err){$('backupNotice').textContent='دا بیک اپ فایل سم نه دی.'}finally{e.target.value=''}
+});
+updateSizeFilter();render();calc();
+})();
+</script>
+</body></html>
